@@ -88,7 +88,6 @@ const Home = () => {
       throw error;
     }
   };
-
   return (
     <Row>
       <Row className="mt-4" style={{ backgroundColor: "teal", width: "100%" }}>
