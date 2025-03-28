@@ -81,7 +81,6 @@ const Home = () => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
-      console.log("API Response:", data.data.page);
       setData(data.data.page)
       return data;
     } catch (error) {
