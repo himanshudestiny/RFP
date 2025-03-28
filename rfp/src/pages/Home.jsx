@@ -7,6 +7,9 @@ import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BootstrapTable from "react-bootstrap-table-next";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Modal from 'react-bootstrap/Modal';
+import RFP from "./RFP/RFP";
+
 
 const Home = () => {
   const [perPage, setPerPage] = useState(10);
@@ -45,6 +48,9 @@ const Home = () => {
     },
   ]);
   const [data, setData] = useState([]);
+  const [fullscreen, setFullscreen] = useState(true);
+  const [show, setShow] = useState(false);
+
 
   const getRfpGridData = async () => {
     const accessToken = sessionStorage.getItem('token');
@@ -87,6 +93,13 @@ const Home = () => {
       console.error("Error fetching data:", error);
       throw error;
     }
+  };
+  const rowEvents = {
+    onClick: (e, row) => {
+        console.log(row)
+        setFullscreen(true);
+        setShow(true);
+    },
   };
   return (
     <Row>
@@ -182,8 +195,19 @@ const Home = () => {
         </Row>
       </Container>
       <Row>
-        <BootstrapTable keyField="id" data={data} columns={columns} />
+        <BootstrapTable keyField="id" data={data} columns={columns} rowEvents={rowEvents} // Attach the row events
+        striped
+        hover
+        bootstrap4 />
       </Row>
+      <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>RFP</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <RFP />
+        </Modal.Body>
+      </Modal>
     </Row>
   );
 };
