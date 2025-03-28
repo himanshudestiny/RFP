@@ -48,7 +48,6 @@ const Home = () => {
 
   const getRfpGridData = async () => {
     const accessToken = sessionStorage.getItem('token');
-    console.log('accessToken',accessToken)
     let payload = {
       _limit: perPage,
       _page: currentPage - 1,
