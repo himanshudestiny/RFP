@@ -1,8 +1,19 @@
 import React from 'react'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Header = () => {
   return (
-    <h1>Header</h1>
+    <>
+    <Container>
+      <Row>
+        <Col xs={6}>
+        
+        </Col>
+      </Row>
+    </Container>
+    </>
   )
 }
 

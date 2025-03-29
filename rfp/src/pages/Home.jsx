@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -9,7 +9,8 @@ import BootstrapTable from "react-bootstrap-table-next";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from 'react-bootstrap/Modal';
 import RFP from "./RFP/RFP";
-
+import Pagination from 'react-bootstrap/Pagination';
+import CustomPagination from "../components/Pagination";
 
 const Home = () => {
   const [perPage, setPerPage] = useState(10);
@@ -50,6 +51,9 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(false);
+  const [items, setItems] = useState([]);
+  const [ totalRows, setTotalRows ] = useState(0);
+  const [ page, setPage ] = useState({});
 
 
   const getRfpGridData = async () => {
@@ -88,6 +92,14 @@ const Home = () => {
       }
       const data = await response.json();
       setData(data.data.page)
+      console.log(data.data)
+      setTotalRows((data.data.total_elements)/perPage)
+      setPage({
+        totalRecords: totalRows,
+        perPage: perPage,
+        totalPages: Math.ceil( totalRows / perPage ),
+        maxVisiblePages: 10
+      })
       return data;
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -101,6 +113,18 @@ const Home = () => {
         setShow(true);
     },
   };
+
+  useEffect(() => {
+    for (let number = 1; number <= totalRows; number++) {
+        items.push(
+          <Pagination.Item key={number} active={number === currentPage}>
+            {number}
+          </Pagination.Item>,
+        );
+      }
+  },[currentPage, totalRows])
+
+
   return (
     <Row>
       <Row className="mt-4" style={{ backgroundColor: "teal", width: "100%" }}>
@@ -199,6 +223,10 @@ const Home = () => {
         striped
         hover
         bootstrap4 />
+      </Row>
+      <Row>
+      {/* <Pagination size='sm'>{items}</Pagination> */}
+      <CustomPagination { ...page } />
       </Row>
       <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
