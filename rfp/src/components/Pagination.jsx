@@ -1,71 +1,75 @@
-import React, { useState } from 'react';
-import { Pagination } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import { Pagination } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function CustomPagination({}) {
-  const totalRecords = 516;
-  const perPage = 10;
-  const totalPages = Math.ceil(totalRecords / perPage); 
-  const maxVisiblePages = 10;
-  const [activePage, setActivePage] = useState(1);
-
+function CustomPagination({
+  totalRecords,
+  perPage,
+  totalPages,
+  maxVisiblePages,
+  currentPage,
+  onPageChange,
+}) {
   const getPageRange = () => {
     const half = Math.floor(maxVisiblePages / 2);
-    let start = Math.max(1, activePage - half);
+    let start = Math.max(1, currentPage - half);
     let end = Math.min(totalPages, start + maxVisiblePages - 1);
     if (end - start + 1 < maxVisiblePages) {
       start = Math.max(1, end - maxVisiblePages + 1);
     }
-
     return { start, end };
   };
+
   const { start, end } = getPageRange();
-  const items = [];  
+  const items = [];
+
   items.push(
     <Pagination.First
       key="first"
-      onClick={() => setActivePage(1)}
-      disabled={activePage === 1}
+      onClick={() => onPageChange(1)}
+      disabled={currentPage === 1}
     />
   );
   items.push(
     <Pagination.Prev
       key="prev"
-      onClick={() => setActivePage((prev) => Math.max(1, prev - 1))}
-      disabled={activePage === 1}
+      onClick={() => onPageChange(Math.max(1, currentPage - 1))}
+      disabled={currentPage === 1}
     />
   );
+
   for (let page = start; page <= end; page++) {
     items.push(
       <Pagination.Item
         key={page}
-        active={page === activePage}
-        onClick={() => setActivePage(page)}
+        active={page === currentPage}
+        onClick={() => onPageChange(page)}
       >
         {page}
       </Pagination.Item>
     );
   }
+
   items.push(
     <Pagination.Next
       key="next"
-      onClick={() => setActivePage((prev) => Math.min(totalPages, prev + 1))}
-      disabled={activePage === totalPages}
+      onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
+      disabled={currentPage === totalPages}
     />
   );
   items.push(
     <Pagination.Last
       key="last"
-      onClick={() => setActivePage(totalPages)}
-      disabled={activePage === totalPages}
+      onClick={() => onPageChange(totalPages)}
+      disabled={currentPage === totalPages}
     />
   );
 
   return (
-    <div>
-      <Pagination size="sm">{items}</Pagination>
+    <div style={{ width: "50%", margin: "auto" }}>
+      <Pagination size="md">{items}</Pagination>
       <p>
-        Showing page {activePage} of {totalPages} (Records: {totalRecords})
+        Showing page {currentPage} of {totalPages} (Records: {totalRecords})
       </p>
     </div>
   );

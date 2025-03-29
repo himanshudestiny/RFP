@@ -11,14 +11,14 @@ import NegotiationRounds from './NegotiationRounds';
 import ExtendRFP from './ExtendRFP';
 
 
-const RFP = () => {
+const RFP = (allRfpData) => {
   return (
     <>
     <Accordion defaultActiveKey={['0']} alwaysOpen>
       <Accordion.Item eventKey="0">
         <Accordion.Header>RFP Details</Accordion.Header>
         <Accordion.Body>
-          <Header />
+          <Header {...allRfpData} />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="1">
