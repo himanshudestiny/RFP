@@ -73,7 +73,7 @@ const Locations = (allRfpData) => {
   return (
     <>
       <Row>
-        <BootstrapTable
+        <BootstrapTable 
           keyField="id"
           data={locationsData}
           columns={columns}
