@@ -12,7 +12,6 @@ const TermsAndConditions = (allRfpData) => {
       getParentToChildData(allRfpData);
   }, [])
 
-
   return (
     <>
       <Row>
