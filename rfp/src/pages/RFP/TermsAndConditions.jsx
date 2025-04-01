@@ -8,6 +8,7 @@ const TermsAndConditions = (allRfpData) => {
         setTerms(data.rfp_tc_dtls[0].rfp_t_and_c);
   };
 
+  
   useEffect(() => {
       getParentToChildData(allRfpData);
   }, [])
