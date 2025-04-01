@@ -30,43 +30,43 @@ const RFP = (allRfpData) => {
       <Accordion.Item eventKey="2">
         <Accordion.Header>Item</Accordion.Header>
         <Accordion.Body>
-          <Item />
+          <Item {...allRfpData} />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="3">
         <Accordion.Header>BOQ</Accordion.Header>
         <Accordion.Body>
-          <BOQ />
+          <BOQ {...allRfpData} />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="4">
         <Accordion.Header>BOQ Files</Accordion.Header>
         <Accordion.Body>
-          <BOQFiles />
+          <BOQFiles {...allRfpData} />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="5">
         <Accordion.Header>Vendor Details</Accordion.Header>
         <Accordion.Body>
-          <VendorDetails />
+          <VendorDetails {...allRfpData} />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="6">
         <Accordion.Header>Terms & Conditions</Accordion.Header>
         <Accordion.Body>
-          <TermsAndConditions />
+          <TermsAndConditions {...allRfpData} />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="7">
         <Accordion.Header>Negotiation Rounds</Accordion.Header>
         <Accordion.Body>
-          <NegotiationRounds />
+          <NegotiationRounds {...allRfpData} />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="8">
         <Accordion.Header>Extnd RFP</Accordion.Header>
         <Accordion.Body>
-          <ExtendRFP />
+          <ExtendRFP {...allRfpData} />
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
