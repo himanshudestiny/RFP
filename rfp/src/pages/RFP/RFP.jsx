@@ -43,7 +43,7 @@ const RFP = (allRfpData) => {
         <Accordion.Header>BOQ Files</Accordion.Header>
         <Accordion.Body>
           <BOQFiles {...allRfpData} />
-        </Accordion.Body>
+        </Accordion.Body> 
       </Accordion.Item>
       <Accordion.Item eventKey="5">
         <Accordion.Header>Vendor Details</Accordion.Header>
