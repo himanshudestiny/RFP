@@ -71,7 +71,7 @@ const RFP = (allRfpData) => {
       </Accordion.Item>
     </Accordion>
     </>
-  )
+  ) 
 }
 
 export default RFP
