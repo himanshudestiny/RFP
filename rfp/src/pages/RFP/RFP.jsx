@@ -47,7 +47,7 @@ const RFP = (allRfpData) => {
         <Accordion.Item eventKey="5">
           <Accordion.Header>Vendor Details</Accordion.Header>
           <Accordion.Body>   
-            <VendorDetails {...allRfpData} />
+            <VendorDetails {...allRfpData} /> 
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="6">
