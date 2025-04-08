@@ -34,7 +34,7 @@ const RFP = (allRfpData) => {
         </Accordion.Item>
         <Accordion.Item eventKey="3">
           <Accordion.Header>BOQ</Accordion.Header>
-          <Accordion.Body>
+          <Accordion.Body> 
             <BOQ {...allRfpData} />
           </Accordion.Body> 
         </Accordion.Item>
