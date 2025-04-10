@@ -55,19 +55,19 @@ const RFP = (allRfpData) => {
           <Accordion.Body>
             {/* <TermsAndConditions {...allRfpData} /> */}
           </Accordion.Body>
-        </Accordion.Item> 
+        </Accordion.Item>
         <Accordion.Item eventKey="7">
           <Accordion.Header>Negotiation Rounds</Accordion.Header>
           <Accordion.Body>
             <NegotiationRounds {...allRfpData} />
           </Accordion.Body>
         </Accordion.Item>
-        <Accordion.Item eventKey="8"> 
+        <Accordion.Item eventKey="8">
           <Accordion.Header>Extnd RFP</Accordion.Header>
           <Accordion.Body>
-            <ExtendRFP {...allRfpData} /> 
+            <ExtendRFP {...allRfpData} />
           </Accordion.Body>
-        </Accordion.Item> 
+        </Accordion.Item>
       </Accordion>
     </>
   );
