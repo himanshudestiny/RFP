@@ -69,7 +69,7 @@ const RFP = (allRfpData) => {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
-    </>
+    </> 
   );
 };
 
