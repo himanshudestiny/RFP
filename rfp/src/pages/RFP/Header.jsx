@@ -41,7 +41,6 @@ const Header = (allRfpData) => {
   }
 
   useEffect(() => {
-    console.log('allRfpData',allRfpData)
     getParentToChildData(allRfpData)
   },[])
 

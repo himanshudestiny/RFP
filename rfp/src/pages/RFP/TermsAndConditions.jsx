@@ -5,7 +5,8 @@ const TermsAndConditions = (allRfpData) => {
   const [ terms, setTerms ] = useState(null);
 
   const getParentToChildData = (data) => {
-        setTerms(data.rfp_tc_dtls[0].rfp_t_and_c);
+    console.log('data',data)
+        // setTerms(data.rfp_tc_dtls[0].rfp_t_and_c);
   };
 
   useEffect(() => {

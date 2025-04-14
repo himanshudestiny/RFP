@@ -31,7 +31,7 @@ const Home = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(false);
-  const [ allRfpData, setAppRfpData ] = useState({});
+  const [ allRfpData, setAllRfpData ] = useState({});
 
   const getRfpGridData = async () => {
     const accessToken = sessionStorage.getItem("token");
@@ -88,7 +88,7 @@ const Home = () => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const responseData = await response.json();
-      setAppRfpData({...responseData.data});
+      setAllRfpData({...responseData.data});
     } catch (error) {
       console.error("Error fetching data:", error);
     }
