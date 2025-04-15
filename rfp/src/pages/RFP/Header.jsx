@@ -31,7 +31,7 @@ const Header = ({allRfpData}) => {
       setUserDepartment(data.user_department_meaning);
       setBidType(data.rfp_type_meaning);
       setApprovalStatus(data.approval_status);
-      setRfpStatus(data.rfp_status);
+      setRfpStatus(data.rfp_status); 
       setStartDate(data.start_date);
       setEndDate(data.end_date);
       setBoqType(data.rfp_item_boq_type);
