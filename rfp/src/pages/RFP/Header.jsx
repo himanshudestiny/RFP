@@ -35,7 +35,7 @@ const Header = ({allRfpData}) => {
       setStartDate(data.start_date);
       setEndDate(data.end_date);
       setBoqType(data.rfp_item_boq_type); 
-      setBudget(data.budget);
+      setBudget(data.budget); 
       setRetention(data.retention); 
       setPaymentTerms(data.payment_terms); 
       setDescription(data.description);
