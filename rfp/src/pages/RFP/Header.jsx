@@ -26,7 +26,7 @@ const Header = ({allRfpData}) => {
 
   const getParentToChildData = (data) => {    
     if(data) {
-      setLegalEntity(data.le_name);
+      setLegalEntity(data.le_name); 
       setRfpNumber(data.rfp_number);
       setUserDepartment(data.user_department_meaning);
       setBidType(data.rfp_type_meaning);
