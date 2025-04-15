@@ -40,7 +40,7 @@ const Header = ({allRfpData}) => {
       setPaymentTerms(data.payment_terms); 
       setDescription(data.description);
       setRfpType(data.rfp_basis);
-      setEditMode(false) 
+      setEditMode(false)  
     }
   };
 
