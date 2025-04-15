@@ -28,7 +28,7 @@ const Header = ({allRfpData}) => {
     if(data) {
       setLegalEntity(data.le_name); 
       setRfpNumber(data.rfp_number);
-      setUserDepartment(data.user_department_meaning);
+      setUserDepartment(data.user_department_meaning); 
       setBidType(data.rfp_type_meaning);
       setApprovalStatus(data.approval_status);
       setRfpStatus(data.rfp_status); 
