@@ -20,7 +20,10 @@ const BOQ = (allRfpData) => {
 
 
     useEffect(() => {
-          getParentToChildData(allRfpData);
+      if(allRfpData) {
+        getParentToChildData(allRfpData);
+      }
+          
     }, [])
 
 

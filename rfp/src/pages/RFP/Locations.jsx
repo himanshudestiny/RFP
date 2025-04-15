@@ -67,7 +67,10 @@ const Locations = (allRfpData) => {
   };
 
   useEffect(() => {
-    getParentToChildData(allRfpData);
+    if(allRfpData) {
+      getParentToChildData(allRfpData);
+    }
+    
   }, []);
 
   return (

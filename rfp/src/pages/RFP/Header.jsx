@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 
-const Header = (allRfpData) => {
+const Header = ({allRfpData}) => {
   const [legalEntity, setLegalEntity] = useState(null);
   const [rfpNumber, setRfpNumber] = useState(null);
   const [userDepartment, setUserDepartment] = useState(null);
@@ -20,31 +20,44 @@ const Header = (allRfpData) => {
   const [budget, setBudget] = useState(null);
   const [retention, setRetention] = useState(null);
   const [paymentTerms, setPaymentTerms] = useState(null);
-  const [ description, setDescription ] = useState(null);
-  const [ rfpType, setRfpType ] = useState(null);
+  const [description, setDescription] = useState(null);
+  const [rfpType, setRfpType] = useState(null);
+  const [ editMode, setEditMode ] = useState(true);
 
-  const getParentToChildData = (data) => {
-    setLegalEntity(data.le_name);
-    setRfpNumber(data.rfp_number);
-    setUserDepartment(data.user_department_meaning);
-    setBidType(data.rfp_type_meaning);
-    setApprovalStatus(data.approval_status);
-    setRfpStatus(data.rfp_status);
-    setStartDate(data.start_date);
-    setEndDate(data.end_date);
-    setBoqType(data.rfp_item_boq_type);
-    setBudget(data.budget);
-    setRetention(data.retention);
-    setPaymentTerms(data.payment_terms);
-    setDescription(data.description);
-    setRfpType(data.rfp_basis);
+  const getParentToChildData = (data) => {    
+    if(data) {
+      setLegalEntity(data.le_name);
+      setRfpNumber(data.rfp_number);
+      setUserDepartment(data.user_department_meaning);
+      setBidType(data.rfp_type_meaning);
+      setApprovalStatus(data.approval_status);
+      setRfpStatus(data.rfp_status);
+      setStartDate(data.start_date);
+      setEndDate(data.end_date);
+      setBoqType(data.rfp_item_boq_type);
+      setBudget(data.budget);
+      setRetention(data.retention);
+      setPaymentTerms(data.payment_terms);
+      setDescription(data.description);
+      setRfpType(data.rfp_basis);
+      setEditMode(false)
+    }
+  };
+
+  const handleRfpTypeChange = (e) => {
+    setRfpType(e.target.value);
+  };
+
+  const handleEditMode = () => {
+    setEditMode(!editMode)
   }
 
   useEffect(() => {
-    getParentToChildData(allRfpData)
-  },[])
-
-
+    if(allRfpData) {
+      getParentToChildData(allRfpData);
+    }
+    
+  }, []);
 
   return (
     <>
@@ -61,18 +74,22 @@ const Header = (allRfpData) => {
                 <Form.Check
                   inline
                   label="Item"
-                  name="Item"
-                  value={rfpType}
+                  name="rfpType"
+                  value="Item"
                   type={type}
                   id={`inline-${type}-1`}
+                  checked={rfpType === "Item"}
+                  onChange={handleRfpTypeChange}
                 />
                 <Form.Check
                   inline
                   label="BOQ"
-                  name="BOQ"
-                  value={rfpType}
+                  name="rfpType"
+                  value="BOQ"
                   type={type}
                   id={`inline-${type}-2`}
+                  checked={rfpType === "BOQ"}
+                  onChange={handleRfpTypeChange}
                 />
               </div>
             ))}
@@ -216,7 +233,11 @@ const Header = (allRfpData) => {
           <Form.Group className="mb-3" controlId="formBasicRfp">
             <Form.Label>Description</Form.Label>
             <InputGroup>
-              <Form.Control as="textarea" value={description || ""} aria-label="With textarea" />
+              <Form.Control
+                as="textarea"
+                value={description || ""}
+                aria-label="With textarea"
+              />
             </InputGroup>
           </Form.Group>
         </Col>
@@ -227,14 +248,24 @@ const Header = (allRfpData) => {
         </Col>
       </Row>
       <Row className="mt-2">
-        <div style={{ display:"flex"}}>
-      <Button variant="success">Save</Button>
-      <Button style={{ marginLeft: '10px'}} variant="warning">Enable Edit</Button>
-      <Button style={{ marginLeft: '10px'}} variant="danger">Close RFP</Button>
-      <Button style={{ marginLeft: '10px'}} variant="info">Cancel RFP</Button>
-      <Button style={{ marginLeft: '10px'}} variant="dark">Owners</Button>
-      <Button style={{ marginLeft: '10px'}} variant="dark">Q & A</Button>
-      </div>
+        <div style={{ display: "flex" }}>
+          <Button variant="success" disabled={!editMode}>Save</Button>
+          <Button style={{ marginLeft: "10px" }} variant="warning" onClick={handleEditMode}>
+            Enable Edit
+          </Button>
+          <Button style={{ marginLeft: "10px" }} variant="danger" disabled={!editMode}>
+            Close RFP
+          </Button>
+          <Button style={{ marginLeft: "10px" }} variant="info" disabled={!editMode}>
+            Cancel RFP
+          </Button>
+          <Button style={{ marginLeft: "10px" }} variant="dark" disabled={!editMode}>
+            Owners
+          </Button>
+          <Button style={{ marginLeft: "10px" }} variant="dark" disabled={!editMode}>
+            Q & A
+          </Button>
+        </div>
       </Row>
     </>
   );

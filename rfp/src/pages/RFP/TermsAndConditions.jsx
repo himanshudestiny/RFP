@@ -6,11 +6,15 @@ const TermsAndConditions = (allRfpData) => {
 
   const getParentToChildData = (data) => {
     console.log('data',data)
-        // setTerms(data.rfp_tc_dtls[0].rfp_t_and_c);
+    if(data && data.rfp_tc_dtls.length>0) {
+      setTerms(data.rfp_tc_dtls[0].rfp_t_and_c);
+    }
   };
 
   useEffect(() => {
+    if(allRfpData) {
       getParentToChildData(allRfpData);
+    }     
   }, [])
 
   return (

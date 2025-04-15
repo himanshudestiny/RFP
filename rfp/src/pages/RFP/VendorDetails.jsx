@@ -76,7 +76,9 @@ const VendorDetails = (allRfpData) => {
   };
 
   useEffect(() => {
-    getParentToChildData(allRfpData);
+    if(allRfpData) {
+      getParentToChildData(allRfpData);
+    }   
   }, []);
 
   return (

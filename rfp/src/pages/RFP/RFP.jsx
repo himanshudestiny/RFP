@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Header from "./Header";
 import Locations from "./Locations";
@@ -11,6 +11,7 @@ import NegotiationRounds from "./NegotiationRounds";
 import ExtendRFP from "./ExtendRFP";
 
 const RFP = (allRfpData) => {
+
   return (
     <>
       <Accordion defaultActiveKey={["0"]} alwaysOpen>

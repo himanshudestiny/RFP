@@ -31,7 +31,8 @@ const Home = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(false);
-  const [ allRfpData, setAllRfpData ] = useState({});
+  const [allRfpData, setAllRfpData] = useState({});
+  const [ showAddRfp, setShowAddRfp ] = useState(false);
 
   const getRfpGridData = async () => {
     const accessToken = sessionStorage.getItem("token");
@@ -88,10 +89,10 @@ const Home = () => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const responseData = await response.json();
-      setAllRfpData({...responseData.data});
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+      setAllRfpData({ ...responseData.data });
+      setFullscreen(true);
+      setShow(true);
+    } catch (error) {}
   };
 
   const handlePageChange = (page) => {
@@ -110,11 +111,15 @@ const Home = () => {
 
   const rowEvents = {
     onClick: (e, row) => {
-        getAllRfpData(row.rfp_header_id);
-      setFullscreen(true);
-      setShow(true);
+      getAllRfpData(row.rfp_header_id);
     },
   };
+
+  const handleAddRfp = () => {
+    setFullscreen(true);
+    setShowAddRfp(true);
+  }
+
   useEffect(() => {
     getRfpGridData();
   }, [currentPage, rfpNumber, approvalStatus, rfpStatus, startDate, endDate]);
@@ -142,9 +147,9 @@ const Home = () => {
       <Container>
         <Row
           className="mt-4"
-          style={{ backgroundColor: "white", width: "95%", margin: "auto" }}
+          style={{ backgroundColor: "white", width: "100%", margin: "auto" }}
         >
-          <Col className="ml-4" xs={2}>
+          <Col className="ml-2" xs={2}>
             <Form.Group className="mb-3" controlId="formBasicRfp">
               <Form.Label>RFP Number</Form.Label>
               <Form.Control
@@ -155,7 +160,7 @@ const Home = () => {
               />
             </Form.Group>
           </Col>
-          <Col className="ml-4" xs={2}>
+          <Col className="ml-2" xs={2}>
             <Form.Group className="mb-3" controlId="formBasicRfp">
               <Form.Label>Approval Status</Form.Label>
               <Form.Control
@@ -166,7 +171,7 @@ const Home = () => {
               />
             </Form.Group>
           </Col>
-          <Col className="ml-4" xs={2}>
+          <Col className="ml-2" xs={2}>
             <Form.Group className="mb-3" controlId="formBasicRfp">
               <Form.Label>RFP Status</Form.Label>
               <Form.Control
@@ -177,7 +182,7 @@ const Home = () => {
               />
             </Form.Group>
           </Col>
-          <Col className="ml-4" xs={2}>
+          <Col className="ml-2" xs={2}>
             <Form.Group className="mb-3" controlId="formBasicRfp">
               <Form.Label>Start Date</Form.Label>
               <Form.Control
@@ -187,7 +192,7 @@ const Home = () => {
               />
             </Form.Group>
           </Col>
-          <Col className="ml-4" xs={2}>
+          <Col className="ml-2" xs={2}>
             <Form.Group className="mb-3" controlId="formBasicRfp">
               <Form.Label>End Date</Form.Label>
               <Form.Control
@@ -197,17 +202,26 @@ const Home = () => {
               />
             </Form.Group>
           </Col>
-          <Col className="ml-4 mt-4" xs={1}>
+          <Col className="mt-4" xs={2} style={{ marginLeft: "-30px" }}>
             <Form.Group className="mb-3 mt-2" controlId="formBasicRfp">
               <Button variant="dark" onClick={getRfpGridData}>
                 Search
               </Button>
-            </Form.Group>
-          </Col>
-          <Col className="ml-4 mt-4" xs={1}>
-            <Form.Group className="mb-3 mt-2" controlId="formBasicRfp">
-              <Button variant="dark" onClick={handleClear}>
+              <Button
+                className="ml-2"
+                style={{ marginLeft: "10px" }}
+                variant="dark"
+                onClick={handleClear}
+              >
                 Clear
+              </Button>
+              <Button
+                className="ml-2"
+                style={{ marginLeft: "10px" }}
+                variant="dark"
+                onClick={handleAddRfp}
+              >
+                +
               </Button>
             </Form.Group>
           </Col>
@@ -241,7 +255,15 @@ const Home = () => {
           <Modal.Title>RFP</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <RFP {...allRfpData}/>
+          <RFP {...allRfpData} />
+        </Modal.Body>
+      </Modal>
+      <Modal show={showAddRfp} fullscreen={fullscreen} onHide={() => setShowAddRfp(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>RFP</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <RFP />
         </Modal.Body>
       </Modal>
     </Row>
