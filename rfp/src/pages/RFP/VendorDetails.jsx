@@ -2,23 +2,23 @@ import React, { useEffect, useState } from "react";
 import { Form, Row } from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
 
-const VendorDetails = ({allRfpData}) => {
+const VendorDetails = ({ allRfpData }) => {
   const [vendorData, setVendorData] = useState([]);
   const inputFormatter = (cell, row, rowIndex, formatExtraData) => {
     const { value, onChange } = formatExtraData;
     return (
-      <Form.Control 
+      <Form.Control
         type="text"
-        value={value[row.id] || cell || ""} 
-        onChange={(e) => onChange(row.id, e.target.value)} 
+        value={value[row.id] || cell || ""}
+        onChange={(e) => onChange(row.id, e.target.value)}
       />
     );
   };
-  const [inputValues, setInputValues] = useState({});   
+  const [inputValues, setInputValues] = useState({});
   const handleInputChange = (rowId, value) => {
     setInputValues((prev) => ({
       ...prev,
-      [rowId]: value, 
+      [rowId]: value,
     }));
   };
   const [columns] = useState([
@@ -76,9 +76,9 @@ const VendorDetails = ({allRfpData}) => {
   };
 
   useEffect(() => {
-    if(allRfpData) {
+    if (allRfpData) {
       getParentToChildData(allRfpData);
-    }   
+    }
   }, []);
 
   return (
