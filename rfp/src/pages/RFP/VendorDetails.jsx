@@ -18,7 +18,7 @@ const VendorDetails = ({allRfpData}) => {
   const handleInputChange = (rowId, value) => {
     setInputValues((prev) => ({
       ...prev,
-      [rowId]: value,
+      [rowId]: value, 
     }));
   };
   const [columns] = useState([
