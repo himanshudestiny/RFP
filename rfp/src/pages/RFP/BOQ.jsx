@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Row } from 'react-bootstrap'
 import BootstrapTable from 'react-bootstrap-table-next'
 
-const BOQ = (allRfpData) => {
+const BOQ = ({allRfpData}) => {
   const [ boqData, setBoqData ] = useState([]);
   const [columns] = useState([
       { dataField: "sheet_name", text: "Sheet Name" },

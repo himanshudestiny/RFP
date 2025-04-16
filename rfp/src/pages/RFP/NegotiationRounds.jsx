@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Form, Row } from 'react-bootstrap'
 import BootstrapTable from 'react-bootstrap-table-next'
 
-const NegotiationRounds = (allRfpData) => {
+const NegotiationRounds = ({allRfpData}) => {
   const [ roundsData, setRoundsData ] = useState([]);
   const inputFormatter = (cell, row, rowIndex, formatExtraData) => {
     return (

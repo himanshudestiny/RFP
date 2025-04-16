@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Form, Row } from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
 
-const Locations = (allRfpData) => {
+const Locations = ({allRfpData}) => {
   const [locationsData, setLocationsData] = useState([]);
   const inputFormatter = (cell, row, rowIndex, formatExtraData) => {
     const { value, onChange } = formatExtraData;

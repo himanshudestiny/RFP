@@ -10,7 +10,7 @@ import TermsAndConditions from "./TermsAndConditions";
 import NegotiationRounds from "./NegotiationRounds";
 import ExtendRFP from "./ExtendRFP";
 
-const RFP = (allRfpData) => {
+const RFP = ({allRfpData}) => {
 
   return (
     <>

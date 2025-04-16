@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 
-const TermsAndConditions = (allRfpData) => {
+const TermsAndConditions = ({allRfpData}) => {
   const [ terms, setTerms ] = useState(null);
 
   const getParentToChildData = (data) => {

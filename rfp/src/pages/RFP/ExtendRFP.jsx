@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Row } from 'react-bootstrap'
 import BootstrapTable from 'react-bootstrap-table-next'
 
-const ExtendRFP = (allRfpData) => {
+const ExtendRFP = ({allRfpData}) => {
   const [ extendedData, setExtendedData ] = useState([]);
   const [ columns, setColumns ] = useState([
     { dataField: "approval_status", text: "Approval Status" },
