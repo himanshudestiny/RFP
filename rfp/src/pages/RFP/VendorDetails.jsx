@@ -14,7 +14,7 @@ const VendorDetails = ({allRfpData}) => {
       />
     );
   };
-  const [inputValues, setInputValues] = useState({}); 
+  const [inputValues, setInputValues] = useState({});   
   const handleInputChange = (rowId, value) => {
     setInputValues((prev) => ({
       ...prev,
