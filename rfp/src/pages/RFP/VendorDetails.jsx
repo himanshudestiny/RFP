@@ -9,7 +9,7 @@ const VendorDetails = ({allRfpData}) => {
     return (
       <Form.Control
         type="text"
-        value={value[row.id] || cell || ""}
+        value={value[row.id] || cell || ""} 
         onChange={(e) => onChange(row.id, e.target.value)}
       />
     );
