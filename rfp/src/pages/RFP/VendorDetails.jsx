@@ -8,7 +8,7 @@ const VendorDetails = ({ allRfpData }) => {
     const { value, onChange } = formatExtraData;
     return (
       <Form.Control
-        type="text"
+        type="text" 
         value={value[row.id] || cell || ""}
         onChange={(e) => onChange(row.id, e.target.value)}
       />
