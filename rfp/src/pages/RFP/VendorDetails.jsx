@@ -19,7 +19,7 @@ const VendorDetails = ({ allRfpData }) => {
     setInputValues((prev) => ({
       ...prev,
       [rowId]: value,
-    }));
+    })); 
   };
   const [columns] = useState([
     { dataField: "add", text: "Add", sort: true },
