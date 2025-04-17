@@ -91,7 +91,7 @@ const VendorDetails = ({ allRfpData }) => {
           striped
           hover
           bootstrap4
-        />
+        /> 
       </Row>
     </>
   );
