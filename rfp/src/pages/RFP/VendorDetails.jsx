@@ -13,7 +13,7 @@ const VendorDetails = ({ allRfpData }) => {
         onChange={(e) => onChange(row.id, e.target.value)}
       />
     );
-  };
+  }; 
   const [inputValues, setInputValues] = useState({});  
   const handleInputChange = (rowId, value) => {
     setInputValues((prev) => ({
