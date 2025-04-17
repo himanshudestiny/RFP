@@ -70,7 +70,7 @@ const VendorDetails = ({ allRfpData }) => {
       },
     },
   ]);
-
+ 
   const getParentToChildData = (data) => {
     setVendorData(data.rfp_vendor_dtls);
   };
