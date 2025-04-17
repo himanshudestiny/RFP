@@ -8,17 +8,17 @@ const VendorDetails = ({ allRfpData }) => {
     const { value, onChange } = formatExtraData;
     return (
       <Form.Control
-        type="text" 
+        type="text"
         value={value[row.id] || cell || ""}
         onChange={(e) => onChange(row.id, e.target.value)}
       />
     );
-  }; 
-  const [inputValues, setInputValues] = useState({});  
+  };
+  const [inputValues, setInputValues] = useState({});
   const handleInputChange = (rowId, value) => {
     setInputValues((prev) => ({
       ...prev,
-      [rowId]: value, 
+      [rowId]: value,
     }));
   };
   const [columns] = useState([
@@ -85,13 +85,13 @@ const VendorDetails = ({ allRfpData }) => {
     <>
       <Row>
         <BootstrapTable
-          keyField="id" 
+          keyField="id"
           data={vendorData}
           columns={columns}
           striped
           hover
           bootstrap4
-        /> 
+        />
       </Row>
     </>
   );
