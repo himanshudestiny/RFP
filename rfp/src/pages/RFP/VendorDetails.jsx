@@ -85,7 +85,7 @@ const VendorDetails = ({ allRfpData }) => {
     <>
       <Row>
         <BootstrapTable
-          keyField="id"
+          keyField="id" 
           data={vendorData}
           columns={columns}
           striped
