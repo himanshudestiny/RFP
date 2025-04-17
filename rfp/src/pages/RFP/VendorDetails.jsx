@@ -84,7 +84,7 @@ const VendorDetails = ({ allRfpData }) => {
   return (
     <>
       <Row>
-        <BootstrapTable
+        <BootstrapTable 
           keyField="id"
           data={vendorData}
           columns={columns}
