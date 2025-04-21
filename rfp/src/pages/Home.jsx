@@ -17,7 +17,7 @@ const Home = () => {
   const [approvalStatus, setApprovalStatus] = useState(null);
   const [rfpStatus, setRfpStatus] = useState(null);
   const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [endDate, setEndDate] = useState(null); 
   const [columns] = useState([
     { dataField: "rfp_number", text: "RFP Number", sort: true },
     { dataField: "user_name", text: "RFP Created By", sort: true },
