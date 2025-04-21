@@ -30,7 +30,7 @@ const Home = () => {
   const [totalRecords, setTotalRecords] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [fullscreen, setFullscreen] = useState(true);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false); 
   const [allRfpData, setAllRfpData] = useState({});
   const [ showAddRfp, setShowAddRfp ] = useState(false);
 
