@@ -15,7 +15,7 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1); 
   const [rfpNumber, setRfpNumber] = useState(null);
   const [approvalStatus, setApprovalStatus] = useState(null);
-  const [rfpStatus, setRfpStatus] = useState(null);
+  const [rfpStatus, setRfpStatus] = useState(null); 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null); 
   const [columns] = useState([
