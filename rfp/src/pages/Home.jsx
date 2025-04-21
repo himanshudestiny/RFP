@@ -11,16 +11,16 @@ import RFP from "./RFP/RFP";
 import CustomPagination from "../components/Pagination";
 
 const Home = () => {
-  const [perPage] = useState(10); 
-  const [currentPage, setCurrentPage] = useState(1); 
+  const [perPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
   const [rfpNumber, setRfpNumber] = useState(null);
   const [approvalStatus, setApprovalStatus] = useState(null);
-  const [rfpStatus, setRfpStatus] = useState(null); 
+  const [rfpStatus, setRfpStatus] = useState(null);
   const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null); 
+  const [endDate, setEndDate] = useState(null);
   const [columns] = useState([
     { dataField: "rfp_number", text: "RFP Number", sort: true },
-    { dataField: "user_name", text: "RFP Created By", sort: true }, 
+    { dataField: "user_name", text: "RFP Created By", sort: true },
     { dataField: "start_date", text: "Start Date" },
     { dataField: "end_date", text: "End Date" },
     { dataField: "approval_status", text: "Approval Status" },
@@ -29,10 +29,10 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [totalRecords, setTotalRecords] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-  const [fullscreen, setFullscreen] = useState(true); 
-  const [show, setShow] = useState(false); 
+  const [fullscreen, setFullscreen] = useState(true);
+  const [show, setShow] = useState(false);
   const [allRfpData, setAllRfpData] = useState({});
-  const [ showAddRfp, setShowAddRfp ] = useState(false); 
+  const [showAddRfp, setShowAddRfp] = useState(false);
 
   const getRfpGridData = async () => {
     const accessToken = sessionStorage.getItem("token");
@@ -118,7 +118,7 @@ const Home = () => {
   const handleAddRfp = () => {
     setFullscreen(true);
     setShowAddRfp(true);
-  }
+  };
 
   useEffect(() => {
     getRfpGridData();
@@ -258,7 +258,11 @@ const Home = () => {
           <RFP {...allRfpData} />
         </Modal.Body>
       </Modal>
-      <Modal show={showAddRfp} fullscreen={fullscreen} onHide={() => setShowAddRfp(false)}>
+      <Modal
+        show={showAddRfp}
+        fullscreen={fullscreen}
+        onHide={() => setShowAddRfp(false)}
+      >
         <Modal.Header closeButton>
           <Modal.Title>RFP</Modal.Title>
         </Modal.Header>
