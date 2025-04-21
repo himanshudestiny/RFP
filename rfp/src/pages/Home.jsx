@@ -12,7 +12,7 @@ import CustomPagination from "../components/Pagination";
 
 const Home = () => {
   const [perPage] = useState(10);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1); 
   const [rfpNumber, setRfpNumber] = useState(null);
   const [approvalStatus, setApprovalStatus] = useState(null);
   const [rfpStatus, setRfpStatus] = useState(null);
