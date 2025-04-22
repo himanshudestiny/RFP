@@ -26,7 +26,7 @@ const Home = () => {
     { dataField: "approval_status", text: "Approval Status" },
     { dataField: "rfp_status", text: "RFP Status" },
   ]);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]); 
   const [totalRecords, setTotalRecords] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [fullscreen, setFullscreen] = useState(true);
