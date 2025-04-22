@@ -99,7 +99,7 @@ const Home = () => {
     setCurrentPage(page);
   };
 
-  const handleClear = () => {
+  const handleClear = () => { 
     setRfpNumber(null);
     setApprovalStatus(null);
     setRfpStatus(null);
