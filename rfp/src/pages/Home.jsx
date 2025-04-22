@@ -32,7 +32,7 @@ const Home = () => {
   const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(false);
   const [allRfpData, setAllRfpData] = useState({});
-  const [showAddRfp, setShowAddRfp] = useState(false);
+  const [showAddRfp, setShowAddRfp] = useState(false); 
 
   const getRfpGridData = async () => {
     const accessToken = sessionStorage.getItem("token");
