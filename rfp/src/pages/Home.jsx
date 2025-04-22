@@ -26,13 +26,13 @@ const Home = () => {
     { dataField: "approval_status", text: "Approval Status" },
     { dataField: "rfp_status", text: "RFP Status" },
   ]);
-  const [data, setData] = useState([]); 
+  const [data, setData] = useState([]);
   const [totalRecords, setTotalRecords] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(false);
-  const [allRfpData, setAllRfpData] = useState({}); 
-  const [showAddRfp, setShowAddRfp] = useState(false); 
+  const [allRfpData, setAllRfpData] = useState({});
+  const [showAddRfp, setShowAddRfp] = useState(false);
 
   const getRfpGridData = async () => {
     const accessToken = sessionStorage.getItem("token");
@@ -82,24 +82,24 @@ const Home = () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`, 
+          Authorization: `Bearer ${accessToken}`,
         },
       });
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      const responseData = await response.json(); 
+      const responseData = await response.json();
       setAllRfpData({ ...responseData.data });
       setFullscreen(true);
       setShow(true);
     } catch (error) {}
-  }; 
+  };
 
-  const handlePageChange = (page) => { 
+  const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
-  const handleClear = () => { 
+  const handleClear = () => {
     setRfpNumber(null);
     setApprovalStatus(null);
     setRfpStatus(null);
