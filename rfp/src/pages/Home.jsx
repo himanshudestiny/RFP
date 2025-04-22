@@ -93,7 +93,7 @@ const Home = () => {
       setFullscreen(true);
       setShow(true);
     } catch (error) {}
-  };
+  }; 
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
