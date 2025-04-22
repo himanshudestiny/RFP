@@ -88,7 +88,7 @@ const Home = () => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      const responseData = await response.json();
+      const responseData = await response.json(); 
       setAllRfpData({ ...responseData.data });
       setFullscreen(true);
       setShow(true);
