@@ -95,7 +95,7 @@ const Home = () => {
     } catch (error) {}
   }; 
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (page) => { 
     setCurrentPage(page);
   };
 
