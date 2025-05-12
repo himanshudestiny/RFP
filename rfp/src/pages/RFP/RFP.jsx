@@ -15,15 +15,15 @@ const RFP = ({ allRfpData }) => {
     <>
       <Accordion defaultActiveKey={["0"]} alwaysOpen>
         <Accordion.Item eventKey="0">
-          <Accordion.Header>RFP Details</Accordion.Header> 
-          <Accordion.Body> 
-            <Header {...allRfpData} /> 
-          </Accordion.Body> 
-        </Accordion.Item> 
-        <Accordion.Item eventKey="1"> 
-          <Accordion.Header>Location Details</Accordion.Header> 
-          <Accordion.Body> 
-            <Locations {...allRfpData} /> 
+          <Accordion.Header>RFP Details</Accordion.Header>
+          <Accordion.Body>
+            <Header {...allRfpData} />
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item eventKey="1">
+          <Accordion.Header>Location Details</Accordion.Header>
+          <Accordion.Body>
+            <Locations {...allRfpData} />
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="2">
