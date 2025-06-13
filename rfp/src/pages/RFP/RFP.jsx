@@ -13,8 +13,8 @@ import ExtendRFP from "./ExtendRFP";
 const RFP = ({ allRfpData }) => {
   return (
     <>
-      <Accordion defaultActiveKey={["0"]} alwaysOpen> 
-        <Accordion.Item eventKey="0">
+      <Accordion defaultActiveKey={["0"]} alwaysOpen>  
+        <Accordion.Item eventKey="0"> 
           <Accordion.Header>RFP Details</Accordion.Header>
           <Accordion.Body>
             <Header {...allRfpData} />
