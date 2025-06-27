@@ -24,7 +24,7 @@ const Header = ({allRfpData}) => {
   const [rfpType, setRfpType] = useState(null);
   const [ editMode, setEditMode ] = useState(true);
 
-  const getParentToChildData = (data) => {    
+  const getParentToChildData = (data) => { 
     if(data) {
       setLegalEntity(data.le_name); 
       setRfpNumber(data.rfp_number);
@@ -53,7 +53,8 @@ const Header = ({allRfpData}) => {
   }
 
   useEffect(() => {
-    if(allRfpData) {
+    if(allRfpData) {   
+    console.log('data')
       getParentToChildData(allRfpData);
     }
     

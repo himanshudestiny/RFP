@@ -20,6 +20,8 @@ const Home = () => {
   const [endDate, setEndDate] = useState(null);
   const [columns] = useState([
     { dataField: "rfp_number", text: "RFP Number", sort: true },
+    { dataField: "rfp_basis", text: "RFP Basis", sort: true },
+    { dataField: "description", text: "Description", sort: true },
     { dataField: "user_name", text: "RFP Created By", sort: true },
     { dataField: "start_date", text: "Start Date" },
     { dataField: "end_date", text: "End Date" },
@@ -160,6 +162,17 @@ const Home = () => {
               />
             </Form.Group>
           </Col>
+          {/* <Col className="" xs={1}>
+            <Form.Group className="mb-3" controlId="formBasicRfp">
+              <Form.Label>RFP Basis</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder=""
+                value={rfpBasis || ""}
+                onChange={(e) => setRfpNumber(e.target.value)}
+              />
+            </Form.Group>
+          </Col> */}
           <Col className="ml-2" xs={2}>
             <Form.Group className="mb-3" controlId="formBasicRfp">
               <Form.Label>Approval Status</Form.Label>
