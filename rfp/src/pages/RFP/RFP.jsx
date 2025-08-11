@@ -15,8 +15,8 @@ const RFP = ({ allRfpData }) => {
     <>
       <Accordion defaultActiveKey={["0"]} alwaysOpen> 
         <Accordion.Item eventKey="0"> 
-          <Accordion.Header>RFP Details</Accordion.Header>
-          <Accordion.Body>
+          <Accordion.Header>RFP Details</Accordion.Header> 
+          <Accordion.Body> 
             <Header {...allRfpData} />
           </Accordion.Body>
         </Accordion.Item>
